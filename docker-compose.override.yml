@@ -1,8 +1,22 @@
 version: '3.4'
 
 services:
+  groupdb:
+    container_name: groupdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
   activityme.groups.api:
+    container_name: group.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "ServiceSettings:ServiceName=Groups"
+      - "MongoDbSettings:Host=groupdb"
+      - "MongoDbSettings:Port=27017"
+    depends_on:
+      - groupdb
     ports:
-      - "80"
+      - "8000:80"
