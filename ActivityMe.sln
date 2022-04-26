@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActivityMe.Groups", "ActivityMe.Groups", "{2F3DCB6F-3600-4F74-B506-EE7128CFBFD5}"
 EndProject
@@ -20,6 +20,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityMe.Groups.API", "ActivityMe.Groups.API\ActivityMe.Groups.API.csproj", "{05709328-A9C2-40B4-96AE-2CA8C4C9203E}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DE238D80-DE4C-4ACD-A379-6CEACF2BEE44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActivityMe.Identity", "ActivityMe.Identity", "{F61C132E-C1D6-40F2-BA14-30FCBABE331E}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityMe.IdentityServer", "ActivityMe.Identity\ActivityMe.IdentityServer\ActivityMe.IdentityServer.csproj", "{B1737524-4837-488F-A7CC-8E7D14D88839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +54,10 @@ Global
 		{DE238D80-DE4C-4ACD-A379-6CEACF2BEE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE238D80-DE4C-4ACD-A379-6CEACF2BEE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE238D80-DE4C-4ACD-A379-6CEACF2BEE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1737524-4837-488F-A7CC-8E7D14D88839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1737524-4837-488F-A7CC-8E7D14D88839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1737524-4837-488F-A7CC-8E7D14D88839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1737524-4837-488F-A7CC-8E7D14D88839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +67,7 @@ Global
 		{B3B75C45-8F0E-448D-B6CE-B425F1DD8B7E} = {63AAB526-9631-484C-80E3-6FCE7F72F470}
 		{4193280E-D420-46D2-8528-59A1C5D469E0} = {F53BD16E-1B7E-48D1-B20A-DDE21901769F}
 		{05709328-A9C2-40B4-96AE-2CA8C4C9203E} = {2F3DCB6F-3600-4F74-B506-EE7128CFBFD5}
+		{B1737524-4837-488F-A7CC-8E7D14D88839} = {F61C132E-C1D6-40F2-BA14-30FCBABE331E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFBB6D22-31D7-48AB-97A9-9D1A82FEEBFE}
