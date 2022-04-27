@@ -2,6 +2,6 @@
 {
     public interface IUserServiceService
     {
-        Task<>
+
     }
 }
