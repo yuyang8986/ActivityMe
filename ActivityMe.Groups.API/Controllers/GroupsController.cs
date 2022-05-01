@@ -1,4 +1,5 @@
 ﻿using ActivityMe.Groups.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Play.Common;
 using System;
@@ -36,6 +37,7 @@ namespace ActivityMe.Groups.API.Controllers
 
         // POST api/<GroupsController>
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Group>> Post([FromBody] Group group)
         {
             var newGroup = new Group { 

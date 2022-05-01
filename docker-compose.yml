@@ -4,11 +4,20 @@ services:
   groupdb:
     image: mongo
 
+  activityme.identityserver:
+    image: ${DOCKER_REGISTRY-}activitymeidentityserver
+    build:
+      context: .
+      dockerfile: ActivityMe.Identity/ActivityMe.IdentityServer/Dockerfile
+
   activityme.groups.api:
     image: ${DOCKER_REGISTRY-}activitymegroupsapi
     build:
       context: .
       dockerfile: ActivityMe.Groups.API/Dockerfile
 
+
+
 volumes:
   mongo_data: 
+
