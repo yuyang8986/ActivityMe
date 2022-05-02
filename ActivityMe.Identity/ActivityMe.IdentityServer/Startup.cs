@@ -2,10 +2,15 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using ActivityMe.Common.Models.Entities;
+using ActivityMe.IdentityServer.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Play.Common.MongoDB;
+using System;
 
 namespace ActivityMe.IdentityServer
 {
@@ -13,15 +18,24 @@ namespace ActivityMe.IdentityServer
     {
         public IWebHostEnvironment Environment { get; }
 
-        public Startup(IWebHostEnvironment environment)
+        public IConfiguration Configuration { get; }
+
+        public Startup(IWebHostEnvironment environment, IConfiguration configuration)
         {
             Environment = environment;
+            Configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
+
+            var mongoDbSettings = Configuration.GetSection(nameof(MongoDbConfig)).Get<MongoDbConfig>();
+            services.AddIdentity<ActivityMeUser, ActivityMeUserRoles>().AddMongoDbStores<ActivityMeUser, ActivityMeUserRoles, Guid>
+            (
+                mongoDbSettings.ConnectionString, mongoDbSettings.Name
+            );
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -48,7 +62,7 @@ namespace ActivityMe.IdentityServer
             // uncomment if you want to add MVC
             app.UseStaticFiles();
             app.UseRouting();
-            
+
             app.UseIdentityServer();
 
             // uncomment, if you want to add MVC

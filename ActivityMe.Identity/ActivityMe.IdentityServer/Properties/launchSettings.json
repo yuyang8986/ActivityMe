@@ -3,15 +3,16 @@
     "SelfHost": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "http://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5001"
+      "applicationUrl": "http://localhost:5001"
     },
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5001",
+      "launchUrl": "http://localhost:5001/swagger",
       "publishAllPorts": true,
       "useSSL": true
     }

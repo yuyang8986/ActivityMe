@@ -33,7 +33,8 @@ namespace ActivityMe.Groups.API
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "https://localhost:5001";
+                    options.Authority = "http://localhost:5001";
+                    options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                     {
                         ValidateAudience = false,

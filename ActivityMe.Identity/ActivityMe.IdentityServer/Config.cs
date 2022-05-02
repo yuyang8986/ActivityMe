@@ -82,7 +82,7 @@ namespace ActivityMe.IdentityServer
                     AllowedGrantTypes= GrantTypes.Code,
                     RedirectUris =
                     {
-                        "https://localhost:5001/signin-oidc"
+                        "http://localhost:5001/signin-oidc"
                     },
                     PostLogoutRedirectUris =
                     {
@@ -91,7 +91,7 @@ namespace ActivityMe.IdentityServer
                     ClientSecrets = {new Secret("Secret".Sha256())},
                     AllowedScopes = new List<string> {"Group:All"},
                     AllowAccessTokensViaBrowser = false,
-                    RequireConsent = true,
+                    RequireConsent = false,
 
                 }
             };

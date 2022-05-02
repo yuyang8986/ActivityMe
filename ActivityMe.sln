@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActivityMe.Identity", "Acti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityMe.IdentityServer", "ActivityMe.Identity\ActivityMe.IdentityServer\ActivityMe.IdentityServer.csproj", "{B1737524-4837-488F-A7CC-8E7D14D88839}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityMe.Users.API", "..\ActivityMe.Users.API\ActivityMe.Users.API.csproj", "{F3773966-93C6-42B0-A571-30E34727A397}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{B1737524-4837-488F-A7CC-8E7D14D88839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1737524-4837-488F-A7CC-8E7D14D88839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1737524-4837-488F-A7CC-8E7D14D88839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3773966-93C6-42B0-A571-30E34727A397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3773966-93C6-42B0-A571-30E34727A397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3773966-93C6-42B0-A571-30E34727A397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3773966-93C6-42B0-A571-30E34727A397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{F873CD7F-88D5-4232-B8D1-9BA91AD21B6D} = {E0A3E742-74D3-488C-BE69-FF9F7988197A}
 		{05709328-A9C2-40B4-96AE-2CA8C4C9203E} = {2F3DCB6F-3600-4F74-B506-EE7128CFBFD5}
 		{B1737524-4837-488F-A7CC-8E7D14D88839} = {F61C132E-C1D6-40F2-BA14-30FCBABE331E}
+		{F3773966-93C6-42B0-A571-30E34727A397} = {63AAB526-9631-484C-80E3-6FCE7F72F470}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFBB6D22-31D7-48AB-97A9-9D1A82FEEBFE}
