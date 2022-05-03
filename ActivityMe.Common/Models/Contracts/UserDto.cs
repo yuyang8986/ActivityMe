@@ -8,7 +8,9 @@ namespace ActivityMe.Common.Models.Contracts
     public class UserCreateDto
     {
         [Required]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
