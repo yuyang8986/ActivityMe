@@ -1,4 +1,5 @@
 ﻿using ActivityMe.Groups.API.Models;
+using ActivityMe.Groups.API.Models.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Play.Common;
@@ -21,48 +22,34 @@ namespace ActivityMe.Groups.API.Controllers
         {
             _repository = repository;
         }
-        // GET: api/<GroupsController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+
 
         // GET api/<GroupsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return "value";
+            var group = await _repository.GetAsync(id);
+            return Ok(group);
         }
 
-        // POST api/<GroupsController>
         [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<Group>> Post([FromBody] Group group)
+        //[Authorize]
+        public async Task<ActionResult<Group>> Post([FromBody] GroupCreateDto group)
         {
+            //TODO add checking on HostUserId is exist
             var newGroup = new Group { 
                 Name = group.Name,
                 Category = group.Category,
                 DateCreated = DateTime.UtcNow,
                 HostUserId = group.HostUserId,
-                PrimaryLocation = group.PrimaryLocation
+                City = group.City,
+                Country = group.Country,
+                IsActive = true
             };
 
             await _repository.CreateAsync(newGroup);
 
             return CreatedAtAction("Get", new { id = newGroup.Id }, newGroup);
-        }
-
-        // PUT api/<GroupsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<GroupsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

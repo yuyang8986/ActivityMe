@@ -11,9 +11,14 @@ namespace ActivityMe.Groups.API.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime DateCreated { get; set; }
-        public string Category { get; set; }
-        public Guid HostUserId { get; set; }
-        public string PrimaryLocation { get; set; }
+        public GroupCategory Category { get; set; }
 
+        public bool IsActive { get; set; } = true;
+        public string Annoucement { get; set; }
+        public Guid HostUserId { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+
+        public ICollection<GroupMember> Members { get; set; }
     }
 }
