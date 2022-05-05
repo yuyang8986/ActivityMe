@@ -1,4 +1,5 @@
-﻿using ActivityMe.Groups.API.Models;
+﻿using ActivityMe.Common.Models.Entities;
+using ActivityMe.Groups.API.Models;
 using ActivityMe.Groups.API.Models.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +24,6 @@ namespace ActivityMe.Groups.API.Controllers
             _repository = repository;
         }
 
-
-        // GET api/<GroupsController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
@@ -36,7 +35,7 @@ namespace ActivityMe.Groups.API.Controllers
         //[Authorize]
         public async Task<ActionResult<Group>> Post([FromBody] GroupCreateDto group)
         {
-            //TODO add checking on HostUserId is exist
+            
             var newGroup = new Group { 
                 Name = group.Name,
                 Category = group.Category,
