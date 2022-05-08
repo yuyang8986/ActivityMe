@@ -1,8 +1,10 @@
 ﻿using ActivityMe.Common.Models.Entities;
+using ActivityMe.Groups.API.Clients;
 using ActivityMe.Groups.API.Models;
 using ActivityMe.Groups.API.Models.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using Play.Common;
 using System;
 using System.Collections.Generic;
@@ -18,10 +20,12 @@ namespace ActivityMe.Groups.API.Controllers
     public class GroupsController : ControllerBase
     {
         private readonly IRepository<Group> _repository;
+        private readonly UserClient userClient;
 
-        public GroupsController(IRepository<Group> repository)
+        public GroupsController(IRepository<Group> repository, UserClient userClient)
         {
             _repository = repository;
+            this.userClient = userClient;
         }
 
         [HttpGet("{id}")]
@@ -32,15 +36,27 @@ namespace ActivityMe.Groups.API.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<Group>> Post([FromBody] GroupCreateDto group)
         {
+            var userId = HttpContext.User.Claims.FirstOrDefault(s=>s.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+
+            if(userId == null)
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+            var user = await userClient.GetUser(new Guid(userId));
+
+            if(user == null)
+            {
+                return BadRequest(new { message = "User not found" });
+            }
             
             var newGroup = new Group { 
                 Name = group.Name,
                 Category = group.Category,
                 DateCreated = DateTime.UtcNow,
-                HostUserId = group.HostUserId,
+                HostUserId = user.Id,
                 City = group.City,
                 Country = group.Country,
                 IsActive = true

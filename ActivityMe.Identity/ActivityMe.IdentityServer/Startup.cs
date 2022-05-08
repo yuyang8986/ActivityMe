@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using Play.Common.MongoDB;
 using System;
 
@@ -30,12 +33,23 @@ namespace ActivityMe.IdentityServer
         {
             // uncomment, if you want to add an MVC-based UI
             services.AddControllersWithViews();
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
 
             var mongoDbSettings = Configuration.GetSection(nameof(MongoDbConfig)).Get<MongoDbConfig>();
             services.AddIdentity<ActivityMeUser, ActivityMeUserRoles>().AddMongoDbStores<ActivityMeUser, ActivityMeUserRoles, Guid>
             (
                 mongoDbSettings.ConnectionString, mongoDbSettings.Name
             );
+
+      
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -46,7 +60,7 @@ namespace ActivityMe.IdentityServer
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
                 .AddInMemoryApiResources(Config.ApiResources)
-                .AddTestUsers(Config.Users);
+                .AddTestUsers(Config.Users).AddResourceOwnerValidator<CustomResourceOwnerPasswordValidator>().AddProfileService<ProfileService>();
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();

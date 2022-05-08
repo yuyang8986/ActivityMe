@@ -75,6 +75,26 @@ namespace ActivityMe.IdentityServer
                     AllowedScopes = new List<string> {"Group:All"}
                 },
 
+                  new Client ()
+                {
+                    ClientId = "ActivityMe-password",
+                    ClientName = "ActivityMe-App-PW",
+                    AllowedGrantTypes= GrantTypes.ResourceOwnerPassword,
+                    //RedirectUris =
+                    //{
+                    //    "http://localhost:5001/signin-oidc"
+                    //},
+                    //PostLogoutRedirectUris =
+                    //{
+                    //    "http://localhost:5001/signout-callback-oidc"
+                    //},
+                    ClientSecrets = {new Secret("Secret".Sha256())},
+                    AllowedScopes = new List<string> {"Group:All"},
+                    AllowAccessTokensViaBrowser = false,
+                    RequireConsent = false,
+
+                },
+
                 new Client ()
                 {
                     ClientId = "ActivityMe-code",

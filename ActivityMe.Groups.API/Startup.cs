@@ -1,3 +1,4 @@
+using ActivityMe.Groups.API.Clients;
 using ActivityMe.Groups.API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,6 +43,14 @@ namespace ActivityMe.Groups.API
                 });
 
             services.AddMongo().AddMongoRepository<Group>("groups");
+
+            services.AddHttpClient<UserClient>(client =>
+            {
+                //TODO move it to config
+                client.BaseAddress = new Uri("http://localhost:7000");
+                //client.DefaultRequestHeaders.Authorization = $"Bearer {client.}"
+
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ActivityMe.Groups.API", Version = "v1" });
