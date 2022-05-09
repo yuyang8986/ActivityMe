@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActivityMe.Common.Models.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace ActivityMe.Groups.API.Models.Contracts

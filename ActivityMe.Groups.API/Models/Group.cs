@@ -1,4 +1,5 @@
-﻿using Play.Common;
+﻿using ActivityMe.Common.Models.Entities;
+using Play.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

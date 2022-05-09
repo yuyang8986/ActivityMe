@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static ActivityMe.Groups.API.Models.Contracts.GroupDtos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,10 +30,21 @@ namespace ActivityMe.Groups.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> Get(Guid id)
         {
             var group = await _repository.GetAsync(id);
-            return Ok(group);
+            if (group == null) return NotFound();
+
+            //var memebers = group.Members.Select(m=> new GroupMember {
+            //    FirstName = m.FirstName,
+            //    IsActive = m.IsActive,
+            //    LastName = m.LastName,
+            //    Phone = m.Phone,
+            //    UserId = m.UserId
+            //}).ToList();
+            var dto = new GroupGetDto(group.Id, group.Name, group.Category, group.IsActive, group.Annoucement, group.HostUserId, group.Country, group.City, group.Members);
+            return Ok(dto);
         }
 
         [HttpPost]
@@ -40,12 +52,15 @@ namespace ActivityMe.Groups.API.Controllers
         public async Task<ActionResult<Group>> Post([FromBody] GroupCreateDto group)
         {
             var userId = HttpContext.User.Claims.FirstOrDefault(s=>s.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+            
 
-            if(userId == null)
+            if (userId == null)
             {
                 return BadRequest(new { message = "User not found" });
             }
-            var user = await userClient.GetUser(new Guid(userId));
+
+            var accessToken = Request.Headers["Authorization"];
+            var user = await userClient.GetUser(new Guid(userId), accessToken);
 
             if(user == null)
             {
@@ -65,6 +80,42 @@ namespace ActivityMe.Groups.API.Controllers
             await _repository.CreateAsync(newGroup);
 
             return CreatedAtAction("Get", new { id = newGroup.Id }, newGroup);
+        }
+
+        [HttpPost]
+        [Route("{groupId}/members")]
+        [Authorize]
+        public async Task<IActionResult> CreateMemeber(Guid groupId, [FromBody] MemberCreateDto member)
+        {
+            var userId = member.UserId;
+            var accessToken = Request.Headers["Authorization"];
+            var user = await userClient.GetUser(userId, accessToken);
+
+            if(user == null)
+            {
+                return NotFound("user not found");
+            }
+
+            var group = await _repository.GetAsync(groupId);
+            if (group == null) return NotFound();
+
+            var newGroup = group;
+            if(newGroup.Members == null)
+            {
+                newGroup.Members = new List<GroupMember>();
+            }
+
+            newGroup.Members.Add(new GroupMember {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                IsActive = true,
+                Phone = user.Phone,
+                RelevantExperience = user.PlayerExperience.FirstOrDefault(x=>x.Key == group.Category).Value
+            });
+
+            await _repository.UpdateAsync(newGroup);
+
+            return Ok(newGroup);
         }
     }
 }
