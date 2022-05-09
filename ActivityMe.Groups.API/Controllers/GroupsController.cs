@@ -105,6 +105,8 @@ namespace ActivityMe.Groups.API.Controllers
                 newGroup.Members = new List<GroupMember>();
             }
 
+            //TODO check if user has been added, if added already, should it been still replaced
+
             newGroup.Members.Add(new GroupMember {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
