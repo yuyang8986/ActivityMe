@@ -47,6 +47,19 @@ namespace ActivityMe.Groups.API.Controllers
             return Ok(dto);
         }
 
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetUserGroups()
+        {
+            var userId = HttpContext.User.Claims.FirstOrDefault(s => s.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+            if (userId == null)
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+
+
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<ActionResult<Group>> Post([FromBody] GroupCreateDto group)
