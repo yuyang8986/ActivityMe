@@ -15,7 +15,7 @@ namespace ActivityMe.Common.Models.Entities.Users
         public string Address { get; set; }
 
         //Player Experience in Years
-        public Dictionary<GroupCategory, int> PlayerExperience { get; set; }
+        public Dictionary<string, int> PlayerExperience { get; set; }
         public IEnumerable<int>  AttendingEventsIds { get; set; }
         public ICollection<UserGroup> Groups { get; set; }
     }

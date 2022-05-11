@@ -112,12 +112,23 @@ namespace ActivityMe.Groups.API.Controllers
             //two things , add user to group and add group to user, if one failed need to revoke both
             try
             {
+                if(newGroup.Members.Any(x=>x.UserId == user.Id.ToString()))
+                {
+                    return BadRequest("user is already in the group");
+                }
+
+                else if(user.Groups.Any(x=>x.Id == groupId))
+                {
+                    return BadRequest("user is already in the group");
+                }
+
                 newGroup.Members.Add(new GroupMember {
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     IsActive = true,
                     Phone = user.Phone,
-                    RelevantExperience = user.PlayerExperience.FirstOrDefault(x=>x.Key == group.Category).Value
+                    UserId = user.Id.ToString(),
+                    RelevantExperience = user.PlayerExperience.FirstOrDefault(x=>x.Key.ToLower() == group.Category.ToString().ToLower()).Value
                 });
 
                 await _repository.UpdateAsync(newGroup);

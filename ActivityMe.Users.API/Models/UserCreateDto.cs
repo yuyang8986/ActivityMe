@@ -19,6 +19,6 @@ namespace ActivityMe.Users.API.Models
         [Required]
         public string Password { get; set; }
 
-        public Dictionary<GroupCategory, int> PlayerExperience { get; set; }
+        public Dictionary<string, int> PlayerExperience { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace ActivityMe.Groups.API.Models.Contracts
     {
         public record AddGroupToUserDto(Guid GroupId, string GroupName, GroupCategory Category, string HostUserId, string HostUserName, string Country, string City, string Location);
 
-        public record GetUserDto(Guid Id, string FirstName, string LastName, string Email, string Phone, Dictionary<GroupCategory, int> PlayerExperience, ICollection<GroupDtos.GroupGetDto> Groups);
+        public record GetUserDto(Guid Id, string FirstName, string LastName, string Email, string Phone, Dictionary<string, int> PlayerExperience, ICollection<GroupDtos.GroupGetDto> Groups);
     }
 }

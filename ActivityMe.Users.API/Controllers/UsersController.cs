@@ -1,16 +1,13 @@
-﻿using ActivityMe.Common.Models.Entities;
+﻿
 using ActivityMe.Users.API.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ActivityMe.Common.Models.Entities.Groups;
 using ActivityMe.Common.Models.Entities.Users;
-using Play.Common;
 using static ActivityMe.Users.API.Models.UserDtos;
 
 namespace ActivityMe.Users.API.Controllers
@@ -21,12 +18,11 @@ namespace ActivityMe.Users.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UserManager<ActivityMeUser> _userManager;
-        private readonly IRepository<ActivityMeUser> _repository;
+        //private readonly IRepository<ActivityMeUser> _repository;
 
-        public UsersController(UserManager<ActivityMeUser> userManager, IRepository<ActivityMeUser> repository)
+        public UsersController(UserManager<ActivityMeUser> userManager)
         {
             _userManager = userManager;
-            _repository = repository;
         }
 
         [HttpPost]
@@ -40,7 +36,8 @@ namespace ActivityMe.Users.API.Controllers
                 FirstName = userCreateDto.FirstName,
                 LastName = userCreateDto.LastName,
                 PhoneNumber = userCreateDto.Phone,
-                PlayerExperience = userCreateDto.PlayerExperience
+                PlayerExperience = userCreateDto.PlayerExperience,
+                Groups = null
                 
             };
 
@@ -59,10 +56,15 @@ namespace ActivityMe.Users.API.Controllers
         {
             var user = await _userManager.FindByIdAsync(userId);
 
-            var groupDtos = user.Groups.Select(g => new GroupDtos.GroupGetDto(g.Id, g.Name, g.Category,
-                 g.HostUserId, g.Country, g.City)).ToList();
+            List<GroupDtos.GroupGetDto> dtos = new List<GroupDtos.GroupGetDto>();
+            if(user.Groups != null)
+            {
+                dtos = user.Groups.Select(g => new GroupDtos.GroupGetDto(g.Id, g.Name, g.Category,
+               g.HostUserId, g.Country, g.City)).ToList();
+            }
+          
 
-            var userDto = new GetUserDto(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.PlayerExperience, groupDtos);
+            var userDto = new GetUserDto(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.PlayerExperience, dtos);
             return Ok(userDto);
         }
 
@@ -84,7 +86,8 @@ namespace ActivityMe.Users.API.Controllers
                 HostUserName = dto.HostUserName
             });
 
-            await _repository.UpdateAsync(user);
+            await _userManager.UpdateAsync(user);
+            //await _repository.UpdateAsync(user);
 
             return Ok(user);
 

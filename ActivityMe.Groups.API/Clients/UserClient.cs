@@ -22,6 +22,7 @@ namespace ActivityMe.Groups.API.Clients
         public async Task<GetUserDto> GetUser(Guid userId, string token)
         {
             _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _httpClient.DefaultRequestHeaders.Add("Authorization", token);
             var user = await _httpClient.GetFromJsonAsync<GetUserDto>($"/api/users/{userId}");
@@ -32,6 +33,7 @@ namespace ActivityMe.Groups.API.Clients
         {
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _httpClient.DefaultRequestHeaders.Clear();
             _httpClient.DefaultRequestHeaders.Add("Authorization", token);
             await _httpClient.PostAsJsonAsync($"/api/users/{userId}/groups", dto);
         }
