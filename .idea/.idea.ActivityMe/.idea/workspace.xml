@@ -8,35 +8,24 @@
     <projectFile profileName="ActivityMe.Users.API">ActivityMe.Users.API/ActivityMe.Users.API.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f53a40da-74d0-4570-99fc-72b3616392af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Users/UserGroup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Models/GroupDtos.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityMe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityMe/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/ActivityMeUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Users/ActivityMeUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/ActivityMeUserRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Users/ActivityMeUserRoles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/GroupCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Groups/GroupCategory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Clients/UserClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Clients/UserClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Controllers/GroupsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Controllers/GroupsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupCreateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupDtos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupDtos.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/UserDtos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/UserDtos.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Group.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Groups/Group.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/GroupMember.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Groups/GroupMember.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ProfileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ProfileService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ResourceOwnerPasswordValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ResourceOwnerPasswordValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserCreateDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserDtos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserDtos.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Startup.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f53a40da-74d0-4570-99fc-72b3616392af" name="Changes" comment="add" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Groups.API/Clients/UserClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Groups.API/Controllers/GroupsController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Groups.API/Models/Contracts/UserDtos.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Groups.API/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Identity/ActivityMe.IdentityServer/ProfileService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Identity/ActivityMe.IdentityServer/ResourceOwnerPasswordValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Identity/ActivityMe.IdentityServer/Startup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Users.API/Controllers/UsersController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Users.API/Models/UserCreateDto.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Users.API/Models/UserDtos.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yangyu/Documents/GitHub/ActivityMe/ActivityMe.Users.API/Startup.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98ba39c7dbfb4b379fba97166aec0d8a19800/51/4b95413d/MongoIdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/38f462cb76578f34cd106bbd1d96f262911c88fbbf17140fb259573fea4ecc5/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -148,8 +137,16 @@
       <option name="presentableId" value="Default" />
       <updated>1652140509074</updated>
       <workItem from="1652140523539" duration="348000" />
-      <workItem from="1652224789542" duration="3654000" />
+      <workItem from="1652224789542" duration="3969000" />
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <created>1652230801718</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652230801718</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,5 +167,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>
