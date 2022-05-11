@@ -14,6 +14,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Play.Common.MongoDB;
 using System;
+using ActivityMe.Common.Models.Entities.Users;
 
 namespace ActivityMe.IdentityServer
 {

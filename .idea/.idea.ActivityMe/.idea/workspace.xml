@@ -4,15 +4,41 @@
     <projectFile profileName="IIS Express">ActivityMe.Groups.API/ActivityMe.Groups.API.csproj</projectFile>
     <projectFile profileName="ActivityMe.Groups.API">ActivityMe.Groups.API/ActivityMe.Groups.API.csproj</projectFile>
     <projectFile profileName="SelfHost">ActivityMe.Identity/ActivityMe.IdentityServer/ActivityMe.IdentityServer.csproj</projectFile>
+    <projectFile profileName="IIS Express">ActivityMe.Users.API/ActivityMe.Users.API.csproj</projectFile>
+    <projectFile profileName="ActivityMe.Users.API">ActivityMe.Users.API/ActivityMe.Users.API.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f53a40da-74d0-4570-99fc-72b3616392af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Users/UserGroup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Models/GroupDtos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ActivityMe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ActivityMe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/ActivityMeUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Users/ActivityMeUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/ActivityMeUserRoles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Users/ActivityMeUserRoles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/GroupCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Groups/GroupCategory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Clients/UserClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Clients/UserClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Controllers/GroupsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Controllers/GroupsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupCreateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupDtos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/GroupDtos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/UserDtos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Contracts/UserDtos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/Group.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Groups/Group.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Models/GroupMember.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Common/Models/Entities/Groups/GroupMember.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Groups.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Groups.API/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ProfileService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ProfileService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ResourceOwnerPasswordValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/ResourceOwnerPasswordValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Identity/ActivityMe.IdentityServer/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserCreateDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserCreateDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserDtos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Models/UserDtos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ActivityMe.Users.API/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ActivityMe.Users.API/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/98ba39c7dbfb4b379fba97166aec0d8a19800/51/4b95413d/MongoIdentityUser`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/38f462cb76578f34cd106bbd1d96f262911c88fbbf17140fb259573fea4ecc5/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -21,18 +47,21 @@
     <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectId" id="28wvY3pb0acp8LyGjiprZuEvSnU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ActivityMe.Groups.API">
     <configuration name="ActivityMe.Groups.API" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ActivityMe.Groups.API/ActivityMe.Groups.API.csproj" />
@@ -79,6 +108,36 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="ActivityMe.Users.API" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ActivityMe.Users.API/ActivityMe.Users.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="ActivityMe.Users.API" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="ActivityMe.Users.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ActivityMe.Users.API/ActivityMe.Users.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -89,6 +148,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652140509074</updated>
       <workItem from="1652140523539" duration="348000" />
+      <workItem from="1652224789542" duration="3654000" />
     </task>
     <servers />
   </component>
@@ -97,26 +157,18 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ActivityMe.Groups.API/Controllers/GroupsController.cs</url>
-          <line>56</line>
-          <properties documentPath="$PROJECT_DIR$/ActivityMe.Groups.API/Controllers/GroupsController.cs" initialLine="56" containingFunctionPresentation="method 'GetUserGroups'">
-            <startOffsets>
-              <option value="2062" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2116" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

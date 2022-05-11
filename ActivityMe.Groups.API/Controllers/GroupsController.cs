@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ActivityMe.Common.Models.Entities.Groups;
 using static ActivityMe.Groups.API.Models.Contracts.GroupDtos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -47,19 +48,6 @@ namespace ActivityMe.Groups.API.Controllers
             return Ok(dto);
         }
 
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> GetUserGroups()
-        {
-            var userId = HttpContext.User.Claims.FirstOrDefault(s => s.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
-            if (userId == null)
-            {
-                return BadRequest(new { message = "User not found" });
-            }
-
-
-        }
-
         [HttpPost]
         [Authorize]
         public async Task<ActionResult<Group>> Post([FromBody] GroupCreateDto group)
@@ -95,10 +83,16 @@ namespace ActivityMe.Groups.API.Controllers
             return CreatedAtAction("Get", new { id = newGroup.Id }, newGroup);
         }
 
+        /// <summary>
+        /// This endpoint will add member to a group, also create the group under the user collection
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="member"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{groupId}/members")]
         [Authorize]
-        public async Task<IActionResult> CreateMemeber(Guid groupId, [FromBody] MemberCreateDto member)
+        public async Task<IActionResult> CreateMember(Guid groupId, [FromBody] MemberCreateDto member)
         {
             var userId = member.UserId;
             var accessToken = Request.Headers["Authorization"];
@@ -113,23 +107,34 @@ namespace ActivityMe.Groups.API.Controllers
             if (group == null) return NotFound();
 
             var newGroup = group;
-            if(newGroup.Members == null)
+            newGroup.Members ??= new List<GroupMember>();
+
+            //two things , add user to group and add group to user, if one failed need to revoke both
+            try
             {
-                newGroup.Members = new List<GroupMember>();
+                newGroup.Members.Add(new GroupMember {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    IsActive = true,
+                    Phone = user.Phone,
+                    RelevantExperience = user.PlayerExperience.FirstOrDefault(x=>x.Key == group.Category).Value
+                });
+
+                await _repository.UpdateAsync(newGroup);
+
+                var dto = new UserDtos.AddGroupToUserDto(newGroup.Id, newGroup.Name, newGroup.Category,
+                    newGroup.HostUserId.ToString(), "", newGroup.Country, newGroup.City, newGroup.City);
+
+                await userClient.AddGroupToUser(userId, accessToken, dto);
+
             }
-
-            //TODO check if user has been added, if added already, should it been still replaced
-
-            newGroup.Members.Add(new GroupMember {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                IsActive = true,
-                Phone = user.Phone,
-                RelevantExperience = user.PlayerExperience.FirstOrDefault(x=>x.Key == group.Category).Value
-            });
-
-            await _repository.UpdateAsync(newGroup);
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                //TODO revoke two transactions
+                return StatusCode(500, e);
+            }
+            
             return Ok(newGroup);
         }
     }

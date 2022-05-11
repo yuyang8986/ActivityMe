@@ -1,4 +1,4 @@
-﻿namespace ActivityMe.Groups.API.Models
+﻿namespace ActivityMe.Common.Models.Entities.Groups
 {
     public class GroupMember
     {

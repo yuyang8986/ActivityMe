@@ -1,4 +1,4 @@
-﻿namespace ActivityMe.Common.Models.Entities
+﻿namespace ActivityMe.Common.Models.Entities.Groups
 {
     public enum GroupCategory
     {

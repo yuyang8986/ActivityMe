@@ -1,6 +1,7 @@
 ﻿using ActivityMe.Common.Models.Entities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using ActivityMe.Common.Models.Entities.Groups;
 
 namespace ActivityMe.Users.API.Models
 {

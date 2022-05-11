@@ -13,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ActivityMe.Common.Models.Entities;
+using ActivityMe.Common.Models.Entities.Groups;
 
 namespace ActivityMe.Groups.API
 {

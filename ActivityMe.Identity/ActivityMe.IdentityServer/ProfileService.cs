@@ -9,6 +9,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ActivityMe.Common.Models.Entities.Users;
 
 namespace ActivityMe.IdentityServer
 {

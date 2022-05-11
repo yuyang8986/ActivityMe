@@ -27,5 +27,13 @@ namespace ActivityMe.Groups.API.Clients
             var user = await _httpClient.GetFromJsonAsync<GetUserDto>($"/api/users/{userId}");
             return user;
         }
+
+        public async Task AddGroupToUser(Guid userId, string token, AddGroupToUserDto dto)
+        {
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _httpClient.DefaultRequestHeaders.Add("Authorization", token);
+            await _httpClient.PostAsJsonAsync($"/api/users/{userId}/groups", dto);
+        }
     }
 }

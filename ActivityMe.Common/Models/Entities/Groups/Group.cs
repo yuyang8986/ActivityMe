@@ -1,11 +1,8 @@
-﻿using ActivityMe.Common.Models.Entities;
-using Play.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Play.Common;
 
-namespace ActivityMe.Groups.API.Models
+namespace ActivityMe.Common.Models.Entities.Groups
 {
     public class Group : IEntity
     {

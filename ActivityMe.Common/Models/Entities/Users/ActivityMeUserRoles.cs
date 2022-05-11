@@ -1,8 +1,8 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
+﻿using System;
+using AspNetCore.Identity.MongoDbCore.Models;
 using MongoDbGenericRepository.Attributes;
-using System;
 
-namespace ActivityMe.Common.Models.Entities
+namespace ActivityMe.Common.Models.Entities.Users
 {
     [CollectionName("UserRoles")]
     public class ActivityMeUserRoles : MongoIdentityRole<Guid>

@@ -4,6 +4,7 @@ using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Threading.Tasks;
+using ActivityMe.Common.Models.Entities.Users;
 
 namespace ActivityMe.IdentityServer
 {

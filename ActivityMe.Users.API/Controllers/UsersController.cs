@@ -5,7 +5,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using ActivityMe.Common.Models.Entities.Groups;
+using ActivityMe.Common.Models.Entities.Users;
+using Play.Common;
 using static ActivityMe.Users.API.Models.UserDtos;
 
 namespace ActivityMe.Users.API.Controllers
@@ -16,10 +21,12 @@ namespace ActivityMe.Users.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UserManager<ActivityMeUser> _userManager;
+        private readonly IRepository<ActivityMeUser> _repository;
 
-        public UsersController(UserManager<ActivityMeUser> userManager)
+        public UsersController(UserManager<ActivityMeUser> userManager, IRepository<ActivityMeUser> repository)
         {
             _userManager = userManager;
+            _repository = repository;
         }
 
         [HttpPost]
@@ -52,8 +59,35 @@ namespace ActivityMe.Users.API.Controllers
         {
             var user = await _userManager.FindByIdAsync(userId);
 
-            var userDto = new GetUserDto(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.PlayerExperience);
+            var groupDtos = user.Groups.Select(g => new GroupDtos.GroupGetDto(g.Id, g.Name, g.Category,
+                 g.HostUserId, g.Country, g.City)).ToList();
+
+            var userDto = new GetUserDto(user.Id, user.FirstName, user.LastName, user.Email, user.PhoneNumber, user.PlayerExperience, groupDtos);
             return Ok(userDto);
+        }
+
+        [HttpPost("{userId}/groups")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> AddGroupToUser(string userId, [FromBody] AddGroupToUserDto dto)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            user.Groups ??= new List<UserGroup>();
+            
+            user.Groups.Add(new UserGroup()
+            {
+                Category = dto.Category,
+                City = dto.City,
+                Country = dto.Country,
+                Id = dto.GroupId,
+                Name = dto.GroupName,
+                HostUserId = new Guid(dto.HostUserId),
+                HostUserName = dto.HostUserName
+            });
+
+            await _repository.UpdateAsync(user);
+
+            return Ok(user);
+
         }
     }
 }
